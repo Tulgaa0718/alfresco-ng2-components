@@ -414,4 +414,11 @@ describe('Content Services Viewer', () => {
 
         viewerPage.clickCloseButton();
     });
+
+    it('[C307985] Should close the viewer when password dialog is cancelled', () => {
+        viewerPage.viewFile(protectedFile.name);
+        viewerPage.checkPasswordDialogIsDisplayed();
+        viewerPage.clickClosePasswordDialog();
+        contentServicesPage.checkContentIsDisplayed(protectedFile.name);
+    });
 });
